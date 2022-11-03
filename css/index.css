@@ -18,7 +18,20 @@ header{
     padding: 12px 50px;
     height: 70px;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.3);
+}
 
+header:hover{
+    background: rgba(255, 255, 255, 1);
+}
+
+.sticky{
+    background: rgba(255, 255, 255, 1);
 }
 
 .logo{
@@ -35,7 +48,7 @@ header{
 }
 .menu > li:hover .sub-menu{
     visibility: visible;
-    top: 30px;
+    top: 45px;
 }
 .sub-menu{
     position: absolute;
@@ -45,6 +58,8 @@ header{
     visibility: hidden;
     top: 50px;
     transition: 0.3s;
+    z-index: 1;
+    background: #fff;
 }
 .sub-menu ul{
     padding-left: 20px;
@@ -68,6 +83,21 @@ header{
 .others > li{
     padding: 0 12px;
 }
+
+.others > li::after{
+    content: "";
+    display: block;
+    width: 1px;
+    height: 50%;
+    background: #cccccccc;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.others > li:last-child::after{
+    display: none;
+}
 .others > li:first-child{
     position: relative;
 }
@@ -75,8 +105,11 @@ header{
     width: 100%;
     border: none;
     border-bottom: 1px solid #333;
+    background: transparent;
+    outline: none;
 }
 .others > li:first-child i{
     position:absolute;
     right: 10px;
+    
 }
