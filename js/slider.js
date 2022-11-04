@@ -1,31 +1,29 @@
-//Slider
-const imgPosition = document.querySelectorAll(".aspect-ratio-169 img");
+const imgPosition = document.querySelectorAll(".aspect-ratio-169 img")
 const imgContainer = document.querySelector('.aspect-ratio-169')
 const dotItem = document.querySelectorAll(".dot")
-
-let index = 0
+var numb = 0
 let imgNumber = imgPosition.length
-imgPosition.forEach(function(image, index){
-    image.style.left = index*100 + "%"
-    dotItem[index].addEventListener("click", function()
+imgPosition.forEach(function(image, numb){
+    console.log(imgPosition)
+    image.style.left = numb * 100 + "%"
+    dotItem[numb].addEventListener("click", function()
     {
-        Slider(index)
+        Slider(numb)
     })
     
 })
 
 function imgSlide(){
-    index++;
-    if(index >= imgNumber)
-        index = 0
-    Slider(index)
+  numb++;
+    if(numb >= imgNumber)
+      numb = 0
+    Slider(numb)
 }
 
-function Slider(index){
-    imgContainer.style.left = "-" + index * 100 + "%"
+function Slider(numb){
+    imgContainer.style.left = "-" + numb * 100 + "%"
     const dotActive = document.querySelector(".active")
     dotActive.classList.remove("active")
-    dotItem[index].classList.add("active")
+    dotItem[numb].classList.add("active")
 }
 setInterval(imgSlide, 5000)
-
